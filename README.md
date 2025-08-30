@@ -1,9 +1,9 @@
-# <p align="center">(emoji a cchoisir) Darkly </p>
-<div align=center><img src="https://github.com/Noralya/Libasm/blob/main/assets/logo.png" alt="ASM Logo" width="200"></div>
-<h3 align="center">A 64-bit Assembly Library Implementation</h3>
-<p align="center">🇫🇷 Bienvenue dans Darkly ! Dans ce projet nous allons apprendre les bases de la cybersecuritee sur le web. Le but est de trouver 14 failles de securitee sur un faux site local pour en comprendre les dangers et les resolutions. Les voici avec screenshots et script qui m'ont permis de les trouver, avec quelque notes sur leur exploitation.</p>
+# <p align="center">🔎 Darkly 🔎</p>
+<div align=center><img src="https://github.com/Noralya/Darkly/blob/main/assets/logo.jpg" alt="Darkly Logo" width="200"></div>
+<h3 align="center">An introduction on web security</h3>
+<p align="center">🇫🇷 Bienvenue sur Darkly ! Dans ce projet, nous allons apprendre les bases de la cybersécurité sur le web. L'objectif est de trouver 14 failles de sécurité sur un faux site local afin d'en comprendre les dangers et les solutions. Les voici, accompagnées de captures d'écran et des scripts qui m'a permis de les trouver, ainsi que de quelques conseils pour les exploiter.</p>
 
-<p align="center">🇬🇧 Welcome to LibASM! This project aims to create a library of fundamental functions written in 64-bit assembly (Intel syntax), using NASM. It will enhance your understanding of low-level programming, memory management, and system calls. So here is my version of the project!</p>
+<p align="center">🇬🇧 Welcome to Darkly! In this project, we'll learn the basics of cybersecurity on the web. The goal is to find 14 security vulnerabilities on a fake local site to understand the dangers and solutions. Here they are, along with screenshots and scripts that helped me find them, along with some notes on how to exploit them.</p>
 
 ---
 
@@ -23,7 +23,13 @@
 
 This project aims to introduce you to cybersecurity in the field of the WWW. You will discover OWASP, which is simply the largest cybersecurity project to date. You will also learn what many frameworks do for you, automatically and transparently.
 
-Apres avoir telecharger le .iso et l'avoir lancer sur une VM, you will get a simple prompt with an IP a executer sur un moteur de recherche pour y trouver les 14 failles de securitee. Your turn-in folder will only include the files that allowed you to solve each of the exploited breaches.
+The goal is to discover, exploit (safely, locally) and fully document 14 web vulnerabilities that appear in a purposely vulnerable web application. This exercise focuses on
+
+- recognizing real-world web weaknesses (OWASP mindset),
+
+- practicing safe exploitation and proof collection,
+
+- explaining root causes and proposing fixes.
 
 ---
 
@@ -32,6 +38,7 @@ Apres avoir telecharger le .iso et l'avoir lancer sur une VM, you will get a sim
 1. Clone the repository:
 ```bash
 git clone https://github.com/Noralya/Darkly.git
+cd Darkly/
 ```
 
 2. Open VirtualBox && use the .iso:
@@ -53,24 +60,24 @@ http://192.168.56.101/
 
 ### **🚀 Mandatory Part**
 
-You need to find all 14 breaches and return your solution in a resources folder folders, here are they listed
+You must find, exploit and document the following vulnerabilities. The table below shows their descriptions and gives a short hint for each.
 
 | **Breach name** |		 **Description**			|
 | ------------ | ---------------------------------- |
-| IDOR    | / 	| 
-| Open redirection    | /						| 
-| Reader open redirection    | / 				| 
-| Sensitive information disclosure     | /	|
-| Parameter Tempering      | /	| 
-| XSS media image    | /	|
-| XSS feedback    | /	|
-| Cookie i_am_admin    | /	|
-| Spamming folder    | /	|
-| Include page    | /	|
-| File upload vulnerability    | /	|
-| SQL injection members    | /	|
-| SQL injection image    | /	|
-| Brute force    | /	|
+| IDOR    | Insecure Direct Object Reference: changing numeric IDs or filenames in URLs gives access to other users' data. Try editing id= or user= parameters. Tools: Burp, browser address bar. Mitigation: server-side access control / indirect references. | 
+| Open redirection    | A parameter accepts a URL and redirects the user to it. Exploit for phishing or to bypass filters. Test ?redirect=https://evil.example. Mitigation: use allowlist or relative paths. | 
+| Reader open redirection    | Same class as open redirect but triggered from a "reader"/RSS or preview feature. Check source= or next= parameters used by the reader. | 
+| Sensitive information disclosure     | Exposed files, stack traces, .git, backups, commented credentials or debug pages. Look for /.git/, /backup/, .env. Mitigation: remove files, environment secrets, proper server config. |
+| Parameter Tempering      | Manipulate client-controlled parameters (price, role, flags). Try changing price fields, roles in requests or tampering signed tokens. Mitigation: server-side validation and integrity checks. | 
+| XSS - media image    | Cross-site scripting via image metadata or filename (e.g. <img alt="..."> injection). Test image upload names & metadata. Mitigation: sanitize and encode filenames, serve images with safe headers. |
+| XSS - feedback    | Reflected or stored XSS in feedback/comments. Try script payloads in feedback forms and review pages. Mitigation: output encoding, input sanitization, CSP. |
+| Cookie i_am_admin    | Application trusts a client cookie like i_am_admin=true. Set it and test privileged pages. Mitigation: never trust client-side flags; use server-side sessions and signed cookies |
+| Spamming folder    | An unprotected mailer or form that allows bulk email sending or an open directory that can be abused. Test forms for mass send and open directory listings. Mitigation: rate limits, auth, CAPTCHA. |
+| Include page (LFI/RFI)    | Include/require parameter reads local files or fetches remote files. Test ?page=../../etc/passwd or remote URLs if enabled. Mitigation: whitelist pages, disable remote includes, validate inputs. |
+| File upload vulnerability    | Uploads accept dangerous files (webshells) or store inside webroot. Try uploading .php disguised or a simple PHP webshell. Mitigation: validate MIME & extension, store outside webroot, rename files, scan uploads. |
+| SQL injection - members    | SQLi in a members search/login endpoint. Try ' OR '1'='1 or time-based payloads. Tools: sqlmap (only in lab), Burp, manual payload. Mitigation: parameterized queries / prepared statements. |
+| SQL injection - image    | SQL injection exposed via image id, tag, or comment fields. Same mitigations as above. |
+| Brute force    | Weak authentication allows password guessing. Try automated attempts (carefully in lab) and observe lockout absence. Mitigation: rate-limiting, lockout, 2FA, password policies.|
 
 **Folders contain:**
 - Founded flag.
@@ -82,7 +89,15 @@ You need to find all 14 breaches and return your solution in a resources folder 
 
 ### **🌟 Bonus Part**
 
-For the bonus part, you will only need to provide advanced explanations for the most recognized breaches you have identified.
+For the bonus, pick a subset of the most interesting breaches (e.g., LFI → RCE, file upload → webshell, SQLi blind union, XSS stored) and provide an advanced write-up including:
+
+- Root cause analysis (which code/config failed),
+
+- Full step-by-step exploit chain, commands & payloads,
+
+- Proof of concept code (small and easy to review),
+
+- Concrete, deployable mitigation and detection guidance
 
 ---
 
@@ -94,5 +109,29 @@ For the bonus part, you will only need to provide advanced explanations for the 
 
 ### **🧰 Resources**
 
-- [42 Doc](https://harm-smits.github.io/42docs/projects/libasm)
-- add more doc
+**Web & training platforms**
+
+- [PortSwigger Web Security Academy — interactive labs & learning path](https://portswigger.net/web-security)
+- [OWASP Juice Shop — intentionally vulnerable app for practise](https://owasp.org/www-project-juice-shop/)
+- [Damn Vulnerable Web App (DVWA)](https://github.com/digininja/DVWA)
+
+**Guides & Cheat sheets**
+
+- [OWASP Top Ten & testing guide](https://owasp.org/www-project-top-ten/) and [also this](https://owasp.org/www-project-web-security-testing-guide/)
+- [OWASP Cheat Sheet Series (XSS, SQLi, Session Management...)](https://cheatsheetseries.owasp.org/)
+- [PentestMonkey SQL Injection Cheat Sheet](http://pentestmonkey.net/cheat-sheet/sql-injection)
+- [OWASP Unrestricted File Upload (concepts and mitigations)](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
+
+**Tools**
+
+- [Burp Suite (intercept & modify requests)](https://portswigger.net/burp)
+- [OWASP ZAP (intercepting proxy & scanner)](https://www.zaproxy.org/)
+- [sqlmap (SQLi automation)](https://sqlmap.org/)
+- [nikto (web server scanner)](https://cirt.net/Nikto2)
+- [nmap (network & port scanner)](https://nmap.org/)
+- [gobuster / dirbuster (content discovery)](https://github.com/OJ/gobuster)
+
+**Reading & payload collections**
+
+- [XSS Filter Evasion / Prevention](https://owasp.org/www-community/xss)
+- [HackTricks (practical exploitation cheats)](https://book.hacktricks.xyz/web)
