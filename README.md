@@ -117,7 +117,7 @@ For the bonus, pick a subset of the most interesting breaches (e.g., LFI → RCE
 
 **Guides & Cheat sheets**
 
-- [OWASP Top Ten & testing guide](https://owasp.org/www-project-top-ten/) and [also this](https://owasp.org/www-project-web-security-testing-guide/)
+- [OWASP Top Ten](https://owasp.org/www-project-top-ten/) and [testing guide](https://owasp.org/www-project-web-security-testing-guide/)
 - [OWASP Cheat Sheet Series (XSS, SQLi, Session Management...)](https://cheatsheetseries.owasp.org/)
 - [PentestMonkey SQL Injection Cheat Sheet](http://pentestmonkey.net/cheat-sheet/sql-injection)
 - [OWASP Unrestricted File Upload (concepts and mitigations)](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
