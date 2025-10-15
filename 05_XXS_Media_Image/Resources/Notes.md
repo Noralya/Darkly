@@ -3,7 +3,7 @@
 ### **Description**
 Sur la page d’accueil, une image (par exemple, une photo de la NSA) est chargée via un "viewer" d’image utilisant l’URL suivante : `?page=media&src=`.
 **Problème :** Le paramètre `src` est inséré directement dans le code HTML, sans validation ni échappement, ce qui permet une **injection XSS (Cross-Site Scripting)**.
-Un attaquant peut passer une donnée encodée en base64 ou une URL malveillante, par exemple :
+Un attaquant peut passer une donnée (notamment un script) encodée en base64 ou une URL malveillante, par exemple :
 `?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4=`
 Ce code exécute un script JavaScript arbitraire dans le contexte du site.
 
