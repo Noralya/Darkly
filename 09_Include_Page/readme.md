@@ -5,6 +5,8 @@ Le site utilise un paramètre `page` pour inclure dynamiquement des fichiers via
 **Problème :** Il est possible de manipuler ce paramètre pour remonter dans l’arborescence du serveur en utilisant des séquences comme `../../../../../../../etc/passwd`.
 Cela permet d’accéder à des fichiers sensibles du système, comme `/etc/passwd`, ou à des fichiers de configuration contenant des mots de passe.
 
+![Alt text](Resources/1.png)
+
 ### **Exemples d’exploitation**
 - **Accès à des fichiers sensibles** : Récupération de fichiers de configuration (mots de passe de base de données, clés privées, etc.).
 - **Exécution de code arbitraire** : Si combiné avec une faille d’inclusion de fichiers distants (RFI), un attaquant pourrait exécuter du code malveillant.

