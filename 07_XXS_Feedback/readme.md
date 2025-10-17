@@ -2,6 +2,9 @@
 
 ### **Description**
 Sur la page de feedback, l’insertion du mot `"script"` dans le champ de commentaire déclenche l’affichage d’un flag, révélant une **faille XSS (Cross-Site Scripting)**.
+
+![Alt text](Resources/1.png)
+
 **Problème :** Le site n’échappe pas les entrées utilisateur avant de les afficher, permettant l’injection de code JavaScript. Même si l’exemple donné (`"script"`) est simpliste, il est possible d’injecter des balises `<script>` complètes pour exécuter du code malveillant.
 
 ### **Exemples d’exploitation**

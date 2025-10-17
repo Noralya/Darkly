@@ -4,10 +4,14 @@
 Dans le pied de page (footer) du site, trois liens vers les réseaux sociaux (Facebook, Twitter, Instagram) sont présents. Ces liens utilisent une page de redirection interne qui accepte un paramètre `site` dans l’URL.
 **Problème :** Il est possible de passer n’importe quelle URL externe en paramètre, par exemple : `http://www.google.fr/`.
 
+![Alt text](Resources/1.png)
+
 ### **Exemples d’exploitation**
 Un attaquant pourrait exploiter cette faille pour :
 - **Rediriger les utilisateurs vers un site malveillant** (phishing), en leur faisant croire qu’ils cliquent sur un lien légitime.
 - **Envoyer des campagnes de mass-mailing** avec des liens semblant provenir du site officiel (exemple : une banque), augmentant ainsi le taux de succès d’une attaque de phishing.
+
+![Alt text](Resources/2.png)
 
 ### **Recommandations**
 - **Limiter les redirections à une liste blanche** de sites autorisés.
