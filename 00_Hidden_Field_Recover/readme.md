@@ -3,8 +3,12 @@
 ### **Description**
 La page de récupération de mot de passe (?page=recover) présente un formulaire contenant uniquement un bouton "Submit", sans champ visible pour saisir une adresse e-mail. Cette absence de champ est suspecte, car une procédure classique de récupération de mot de passe nécessite généralement que l’utilisateur fournisse son adresse e-mail.
 
+![Alt text](Resources/1.png)
+
 ### **Analyse technique**
 En inspectant le code source de la page, on découvre un champ caché (hidden field) nommé mail dans le formulaire. Ce champ contient par défaut l’adresse e-mail de l’administrateur qui reçoit les demandes de réinitialisation de mot de passe. Ce champ est modifiable côté client, ce qui permet à un attaquant de le manipuler à volonté.
+
+![Alt text](Resources/2.png)
 
 ### **Exemple d’exploitation**
 Envoyer massivement des demandes de réinitialisation de mot de passe à une adresse cible (flood/mail bomb), en automatisant l’envoi via un script.

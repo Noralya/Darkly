@@ -4,6 +4,9 @@
 Sur la page de sondage (survey), un tableau de formulaires est présenté **sans aucune validation**, ni côté client (front) ni côté serveur (back).
 **Problème :** Il est possible de modifier manuellement la valeur d’un champ (par exemple, passer de `5` à `10000`) pour fausser les résultats du sondage.
 
+![Alt text](Resources/1.png)
+![Alt text](Resources/2.png)
+
 ### **Exemples d’exploitation**
 - **Falsification de résultats** : Un utilisateur malveillant peut manipuler les valeurs soumises pour influencer les résultats d’un sondage (exemple : choisir la prochaine musique diffusée par une radio).
 - **Abus de système de points** : Si le sondage est lié à un système de récompenses, cette faille permet d’obtenir des avantages indus.

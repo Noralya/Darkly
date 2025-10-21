@@ -2,7 +2,13 @@
 
 ### **Description**
 Le site utilise un cookie nommé `i_am_admin` dont la valeur est un hash MD5 de la chaîne `"false"`.
+
+![Alt text](Resources/1.png)
+
 **Problème :** Il est possible de modifier manuellement la valeur de ce cookie pour y insérer le hash MD5 de `"true"`, ce qui permet d’obtenir des privilèges administrateur sans authentification valide.
+
+![Alt text](Resources/2.png)
+![Alt text](Resources/3.png)
 
 ### **Exemples d’exploitation**
 - **Élevation de privilèges** : Un attaquant peut éditer le cookie pour se faire passer pour un administrateur et accéder à des fonctionnalités réservées.
