@@ -1,9 +1,9 @@
 # <p align="center">🔎 Darkly 🔎</p>
 <div align=center><img src="https://github.com/Noralya/Darkly/blob/main/assets/logo.jpg" alt="Darkly Logo" width="200"></div>
 <h3 align="center">An introduction on web security</h3>
-<p align="center">🇫🇷 Bienvenue sur Darkly ! Dans ce projet, nous allons apprendre les bases de la cybersécurité sur le web. L'objectif est de trouver 14 failles de sécurité sur un faux site local afin d'en comprendre les dangers et les solutions. Les voici, accompagnées de captures d'écran et des scripts qui m'a permis de les trouver, ainsi que de quelques conseils pour les exploiter.</p>
+<p align="center">🇫🇷 Bienvenue sur Darkly ! Dans ce projet, nous allons apprendre les bases de la cybersécurité sur le web. L'objectif est de trouver 14 failles de sécurité sur un faux site local afin d'en comprendre les dangers et les solutions. Les voici, accompagnées de captures d'écran et des scripts qui nous ont permis de les trouver, ainsi que de quelques conseils pour les exploiter.</p>
 
-<p align="center">🇬🇧 Welcome to Darkly! In this project, we'll learn the basics of cybersecurity on the web. The goal is to find 14 security vulnerabilities on a fake local site to understand the dangers and solutions. Here they are, along with screenshots and scripts that helped me find them, along with some notes on how to exploit them.</p>
+<p align="center">🇬🇧 Welcome to Darkly! In this project, we'll learn the basics of cybersecurity on the web. The goal is to find 14 security vulnerabilities on a fake local site to understand the dangers and solutions. Here they are, along with screenshots and scripts that helped us find them, along with some notes on how to exploit them.</p>
 
 ---
 
