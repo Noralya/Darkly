@@ -122,6 +122,10 @@ For the bonus, pick a subset of the most interesting breaches (e.g., LFI → RCE
 - [PentestMonkey SQL Injection Cheat Sheet](http://pentestmonkey.net/cheat-sheet/sql-injection)
 - [OWASP Unrestricted File Upload (concepts and mitigations)](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
 
+**Must use**
+- [Md5 Encrypt & Decrypt](https://md5decrypt.net/)
+- [Free Password Hash Cracker](https://crackstation.net/)
+
 **Tools**
 
 - [Burp Suite (intercept & modify requests)](https://portswigger.net/burp)
