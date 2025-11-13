@@ -1,5 +1,5 @@
 # <p align="center">🔎 Darkly 🔎</p>
-<div align=center><img src="https://github.com/Noralya/Darkly/blob/main/assets/logo.jpg" alt="Darkly Logo" width="200"></div>
+<div align=center><img src="https://github.com/Noralya/Darkly/blob/main/assets/darkly.png" alt="Darkly Logo" width="200"></div>
 <h3 align="center">An introduction on web security</h3>
 <p align="center">🇫🇷 Bienvenue sur Darkly ! Dans ce projet, nous allons apprendre les bases de la cybersécurité sur le web. L'objectif est de trouver 14 failles de sécurité sur un faux site local afin d'en comprendre les dangers et les solutions. Les voici, accompagnées de captures d'écran et des scripts qui nous ont permis de les trouver, ainsi que de quelques conseils pour les exploiter.</p>
 
@@ -13,7 +13,6 @@
 - [⚙️ Compilation & Setup](#%EF%B8%8F-compilation--setup)
 - [🚀 Mandatory Part](#-mandatory-part)
 - [🌟 Bonus Part](#-bonus-part)
-- [🧪 Testing](#-testing)
 - [📜 Common Instructions](#-common-instructions)
 - [🧰 Resources](#-resources)
 
@@ -70,8 +69,8 @@ You must find, exploit and document the following vulnerabilities. The table bel
 | Sensitive information disclosure     | Exposed files, stack traces, .git, backups, commented credentials or debug pages. Look for /.git/, /backup/, .env. Mitigation: remove files, environment secrets, proper server config. |
 | Parameter Tempering      | Manipulate client-controlled parameters (price, role, flags). Try changing price fields, roles in requests or tampering signed tokens. Mitigation: server-side validation and integrity checks. | 
 | XSS - media image    | Cross-site scripting via image metadata or filename (e.g. <img alt="..."> injection). Test image upload names & metadata. Mitigation: sanitize and encode filenames, serve images with safe headers. |
-| XSS - feedback    | Reflected or stored XSS in feedback/comments. Try script payloads in feedback forms and review pages. Mitigation: output encoding, input sanitization, CSP. |
 | Cookie i_am_admin    | Application trusts a client cookie like i_am_admin=true. Set it and test privileged pages. Mitigation: never trust client-side flags; use server-side sessions and signed cookies |
+| XSS - feedback    | Reflected or stored XSS in feedback/comments. Try script payloads in feedback forms and review pages. Mitigation: output encoding, input sanitization, CSP. |
 | Spamming folder    | An unprotected mailer or form that allows bulk email sending or an open directory that can be abused. Test forms for mass send and open directory listings. Mitigation: rate limits, auth, CAPTCHA. |
 | Include page (LFI/RFI)    | Include/require parameter reads local files or fetches remote files. Test ?page=../../etc/passwd or remote URLs if enabled. Mitigation: whitelist pages, disable remote includes, validate inputs. |
 | File upload vulnerability    | Uploads accept dangerous files (webshells) or store inside webroot. Try uploading .php disguised or a simple PHP webshell. Mitigation: validate MIME & extension, store outside webroot, rename files, scan uploads. |
@@ -98,12 +97,6 @@ For the bonus, pick a subset of the most interesting breaches (e.g., LFI → RCE
 - Proof of concept code (small and easy to review),
 
 - Concrete, deployable mitigation and detection guidance
-
----
-
-### **🧪 Testing**
-
-![demo](./assets/darkly.gif)
 
 ---
 
